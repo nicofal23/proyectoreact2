@@ -1,0 +1,12 @@
+.button {
+    display: flex;
+    gap: 1.25rem;
+}
+
+.contenedorcart {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    flex-direction: column;
+    align-content: center;
+} 

@@ -1,0 +1,105 @@
+.NavBar {
+  text-decoration: none;
+  color: #e878a2;
+  position: relative;
+  font-size: 20px;
+  display: flex;
+  flex-direction: row;
+    justify-content: space-between;
+}
+.titulo {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  text-align: center;
+  -webkit-animation: slide-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: slide-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  margin: 3.125rem;
+}
+.moniessen {
+  width: 6.375rem;
+  height: 6.375rem;
+  margin: 20px;
+}
+
+.carrito {
+  border: none;
+  color: #0a0a0a;
+  font-size: 30px;
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 70%;
+  padding: 10px 20px;
+}
+
+.carrito:hover {
+  color: rgba(255, 255, 255, 0);
+  background-color: rgba(130, 236, 135, 0.171);
+}
+
+.cantidadCarrito {
+  color: black;
+}
+
+.img { 
+  width: 40px;
+}
+
+.moni {
+  display: flex;
+  align-items: center;
+}
+.carrito {
+  background-color: transparent;
+  border: none;
+}
+
+.button {
+  background-color: transparent;
+  border: none;
+}
+.cate {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+}
+
+.cate li {
+  list-style: none;
+  text-decoration: none;
+}
+.moni li {
+  list-style: none;
+  text-decoration: none;
+}
+
+
+.ActiveOption {
+  background-color: #e878a2;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+
+/* ... Otros estilos ... */
+
+.burgerMenu {
+  display: none;
+}
+
+.open {
+  display: flex !important;
+}
+
+@media screen and (max-width: 920px) {
+  .moni, .cate {
+    display: none;
+  }
+
+  .burgerMenu {
+    display: block;
+  }
+}
