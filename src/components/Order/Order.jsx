@@ -53,6 +53,7 @@ const Order = () => {
       items: cart.map((item) => ({
         id: item.item.id,
         nombre: item.item.nombre,
+        cantidad: item.cantidad,
         precio: item.item.precio,
       })),
       total: cart.reduce((acc, curr) => acc + curr.item.precio * curr.cantidad, 0),
