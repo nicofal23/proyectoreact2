@@ -29,15 +29,15 @@ Bienvenido al repositorio de mi proyecto de ventas de ollas Essen desarrollado e
 1. Clona este repositorio en tu máquina local.
 
 ```bash
-git clone https://github.com/nicofal23/proyectoreact
+git clone https://github.com/nicofal23/proyectoreact;
 
 
-## Instala las dependencias.
+2. Instala las dependencias.
 
 ```bash
 npm install
 
-## Inicia la aplicación.
+3. Inicia la aplicación.
 
 ```bash
 npm run dev
