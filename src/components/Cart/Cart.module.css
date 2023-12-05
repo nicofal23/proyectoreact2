@@ -1,6 +1,7 @@
 .button {
     display: flex;
     gap: 1.25rem;
+    justify-content: center;
 }
 
 .contenedorcart {
