@@ -41,3 +41,12 @@
     cursor: pointer;
     text-decoration: none;
   }
+
+
+  @media (max-width: 767px) {
+    .CardItem {
+      width: 100%; /* Asegura que el ancho sea del 100% en pantallas pequeñas */
+      margin: 16px 0; /* Ajusta el margen para separar los elementos */
+    }
+    
+  }

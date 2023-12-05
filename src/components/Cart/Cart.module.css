@@ -10,3 +10,8 @@
     flex-direction: column;
     align-content: center;
 } 
+
+.total {
+    display: flex;
+    justify-content: center;
+}

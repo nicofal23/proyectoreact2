@@ -20,7 +20,7 @@ const Cart = () => {
   return (
     <div className={styles.contenedorcart} >
       {cart.map((item) => <CartItem key={item.item.id} item={item} />)}
-      <h3>Total: $ {cart.reduce((acc, curr) => acc + curr.item.precio * curr.cantidad, 0)}</h3>
+      <h3 className={styles.total}>Total: $ {cart.reduce((acc, curr) => acc + curr.item.precio * curr.cantidad, 0)}</h3>
       <div className={styles.button}>
       <button onClick={() => clearCart()} className='btn btn-primary'>Vaciar carrito</button>
       <Link to='/checkout' className='btn btn-primary'>Checkout</Link>

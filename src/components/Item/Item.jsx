@@ -5,11 +5,11 @@ import styles from '../Item/Item.module.css';
 const Item = ({ id, nombre, img, precio, stock }) => {
     return (
         <article className={styles.CardItem}>
-            <header className={styles.Header}>
+            <div className={styles.Header}>
                 <h2 className={styles.ItemHeader}>
                     {nombre}
                 </h2>
-            </header>
+            </div>
             <picture>
                 <img src={img} alt={nombre} className={styles.ItemImg} />
             </picture>
