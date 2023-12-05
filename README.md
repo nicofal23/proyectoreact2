@@ -34,12 +34,12 @@ Bienvenido al repositorio de mi proyecto de ventas de ollas Essen desarrollado e
 
 2. Instala las dependencias.
 
-``bash
+```bash
 npm install
-
+```
 3. Inicia la aplicación.
 
 ```bash
 npm run dev
-
+```
 La aplicación estará disponible en http://localhost:5173.
