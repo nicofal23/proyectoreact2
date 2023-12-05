@@ -24,23 +24,20 @@ Bienvenido al repositorio de mi proyecto de ventas de ollas Essen desarrollado e
 
 - **SweetAlert2**: La gestión de alertas y notificaciones se realiza con SweetAlert2, proporcionando mensajes atractivos y personalizables.
 
+
 ## Instalación
 
 1. Clona este repositorio en tu máquina local.
 
-```bash
-git clone https://github.com/nicofal23/proyectoreact;
-
+   ```bash
+   git clone https://github.com/nicofal23/proyectoreact
 
 2. Instala las dependencias.
 
-```bash
 npm install
 
 3. Inicia la aplicación.
 
-```bash
 npm run dev
 
-
-###La aplicación estará disponible en http://localhost:5173.
+La aplicación estará disponible en http://localhost:5173.
