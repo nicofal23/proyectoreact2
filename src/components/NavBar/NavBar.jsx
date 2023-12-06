@@ -1,3 +1,4 @@
+//NavBar.jsx
 import React, { useState } from 'react';
 import CartWidget from '../CartWidget/CartWidget';
 import { NavLink } from 'react-router-dom';
@@ -15,6 +16,10 @@ const NavBar = () => {
     setSubMenuOpen(!isSubMenuOpen);
   };
 
+  const closeSubMenu = () => {
+    setSubMenuOpen(false);
+  };
+
   return (
     <nav className={style.NavBar}>
       <ul className={`${style.moni} ${isOpen ? style.open : ''}`}>
@@ -26,17 +31,17 @@ const NavBar = () => {
           <button onClick={toggleSubMenu} className={style.subMenuButton}>Productos</button>
           <ul className={`${style.subMenu} ${isSubMenuOpen ? style.open : ''}`}>
             <li className={style.li}>
-              <NavLink to="/category/ollas" className={style.ActiveOption}>
+              <NavLink to="/category/ollas" className={style.ActiveOption} onClick={closeSubMenu}>
                 Ollas
               </NavLink>
             </li>
             <li className={style.li}>
-              <NavLink to="/category/jarras" className={style.ActiveOption}>
+              <NavLink to="/category/jarras" className={style.ActiveOption} onClick={closeSubMenu}>
                 Jarras
               </NavLink>
             </li>
             <li className={style.li}>
-              <NavLink to="/category/sarten" className={style.ActiveOption}>
+              <NavLink to="/category/sarten" className={style.ActiveOption} onClick={closeSubMenu}>
                 Sartén
               </NavLink>
             </li>
