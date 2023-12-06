@@ -27,7 +27,6 @@ const Order = () => {
   };
 
   const handleBuyClick = async () => {
-    // Verificar si hay productos en el carrito
     if (cart.length === 0) {
       MySwal.fire({
         icon: 'error',
@@ -37,7 +36,6 @@ const Order = () => {
       return;
     }
 
-    // Verificar si los campos obligatorios están completos
     if (!customerInfo.name || !customerInfo.phone || !customerInfo.email) {
       MySwal.fire({
         icon: 'error',
@@ -47,7 +45,6 @@ const Order = () => {
       return;
     }
 
-    // Crear el objeto de la orden
     const order = {
       buyer: customerInfo,
       items: cart.map((item) => ({
@@ -60,16 +57,13 @@ const Order = () => {
     };
 
     try {
-      // Agregar la orden a Firestore
       const docRef = await addDoc(collection(db, 'orders'), {
         ...order,
         createdAt: serverTimestamp(),
       });
 
-      // Limpiar el carrito después de realizar la compra
       clearCart();
 
-      // Mostrar SweetAlert de éxito
       MySwal.fire({
         icon: 'success',
         title: 'Compra realizada con éxito',

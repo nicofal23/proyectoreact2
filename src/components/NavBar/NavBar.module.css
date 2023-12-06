@@ -1,114 +1,65 @@
-.NavBar {
-  text-decoration: none;
-  color: #e878a2;
-  position: relative;
-  font-size: 20px;
-  display: flex;
-  flex-direction: row;
-    justify-content: space-between;
-}
-.titulo {
-  display: flex;
-  align-items: center;
-  width: 50%;
-  text-align: center;
-  -webkit-animation: slide-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  animation: slide-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  margin: 3.125rem;
-}
 .moniessen {
   width: 6.375rem;
   height: 6.375rem;
   margin: 20px;
 }
 
-.carrito {
-  border: none;
-  color: #0a0a0a;
-  font-size: 30px;
-  background-color: rgba(255, 255, 255, 0);
-  border-radius: 70%;
-  padding: 10px 20px;
-}
-
-.carrito:hover {
-  color: rgba(255, 255, 255, 0);
-  background-color: rgba(130, 236, 135, 0.171);
-}
-
-.cantidadCarrito {
-  color: black;
-}
-
-.img { 
-  width: 40px;
+.NavBar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
 }
 
 .moni {
   display: flex;
-  align-items: center;
-}
-.carrito {
-  background-color: transparent;
-  border: none;
-}
-
-.button {
-  background-color: transparent;
-  border: none;
-}
-.cate {
-  display: flex;
-  gap: 1.25rem;
-  align-items: center;
-}
-
-.cate li {
   list-style: none;
-  text-decoration: none;
+  align-items: center
 }
-.moni li {
+
+.li {
+  margin-right: 20px;
+  text-decoration: none;
   list-style: none;
-  text-decoration: none;
 }
 
+.subMenu {
+  display: none;
+  position: absolute;
+  background-color: #e878a2;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
 
-.ActiveOption {
+.subMenuButton {
   background-color: #e878a2;
   color: #fff;
   padding: 8px 16px;
   border: none;
-  border-radius: 4px;
-  cursor: pointer;
+  border-radius: 4px 4px 0 0;
   text-decoration: none;
-}
 
-
-/* ... Otros estilos ... */
-
-.burgerMenu {
-  display: none;
 }
 
 .open {
-  display: flex !important;
+  display: block;
 }
 
-@media screen and (max-width: 920px) {
-  .moni, .cate {
-    display: none;
-  }
-
-  .burgerMenu {
-    display: block;
-  }
+.carrito {
+  position: relative;
+}
+.ActiveOption {
+  text-decoration: none;
+  color: white;
 }
 
-
-
-
-@media (max-width: 767px) {
-  .cate {
-    flex-direction: column;
-  }
+.ActiveOptions {
+  background-color: #e878a2;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px 4px 0 0 ;
+  cursor: pointer;
+  text-decoration: none;
 }

@@ -14,10 +14,10 @@ export const CartProvider = ({ children }) => {
 
   const addItem = (item, cantidad) => {
     const existingItemIndex = cart.findIndex((prod) => prod.item.id === item.id);
- 
+  
     if (existingItemIndex !== -1) {
-      const newCart = cart.map((prod) => {
-        if (prod.id === item.id) {
+      const newCart = cart.map((prod, index) => {
+        if (index === existingItemIndex) {
           return { ...prod, cantidad: prod.cantidad + cantidad };
         } else {
           return prod;

@@ -1,39 +1,46 @@
 import React, { useState } from 'react';
 import CartWidget from '../CartWidget/CartWidget';
 import { NavLink } from 'react-router-dom';
-import style from '../NavBar/NavBar.module.css';
+import style from './NavBar.module.css';
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isSubMenuOpen, setSubMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
- 
+
+  const toggleSubMenu = () => {
+    setSubMenuOpen(!isSubMenuOpen);
+  };
+
   return (
     <nav className={style.NavBar}>
-      <button onClick={toggleMenu} className={style.burgerMenu}>☰</button>
       <ul className={`${style.moni} ${isOpen ? style.open : ''}`}>
-        <li>
-          <NavLink to="/" end className={style.ActiveOption}>  Inicio
+        <li className={style.li}>
+          <NavLink to="/" end className={style.ActiveOptions}>  Inicio
           </NavLink>
         </li>
-      </ul>
-      <ul className={`${style.cate} ${isOpen ? style.open : ''}`}>
-        <li>
-          <NavLink to="/category/ollas" className={style.ActiveOption}>
-            Ollas
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/category/jarras" className={style.ActiveOption}>
-            Jarras
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/category/sarten" className={style.ActiveOption}>
-            Sartén
-          </NavLink>
+        <li className={style.li}>
+          <button onClick={toggleSubMenu} className={style.subMenuButton}>Productos</button>
+          <ul className={`${style.subMenu} ${isSubMenuOpen ? style.open : ''}`}>
+            <li className={style.li}>
+              <NavLink to="/category/ollas" className={style.ActiveOption}>
+                Ollas
+              </NavLink>
+            </li>
+            <li className={style.li}>
+              <NavLink to="/category/jarras" className={style.ActiveOption}>
+                Jarras
+              </NavLink>
+            </li>
+            <li className={style.li}>
+              <NavLink to="/category/sarten" className={style.ActiveOption}>
+                Sartén
+              </NavLink>
+            </li>
+          </ul>
         </li>
       </ul>
       <div id="carrito" className="carrito">
@@ -42,4 +49,5 @@ const NavBar = () => {
     </nav>
   );
 };
-export default NavBar;  
+
+export default NavBar;

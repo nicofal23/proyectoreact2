@@ -5,6 +5,7 @@ import './components/NavBar/NavBar.module.css'
 import './App.css';
 import ImagenLogo from './components/Logo/ImagenLogo';
 import RouterPrincipal from './routers/RouterPrincipal';
+import Footer from './components/Footer/Footer';
 
 const App = () => {
     return (
@@ -16,6 +17,9 @@ const App = () => {
         <main>
             <RouterPrincipal/>
         </main>
+        <footer>
+            <Footer />
+        </footer>
         </>
     );
 }

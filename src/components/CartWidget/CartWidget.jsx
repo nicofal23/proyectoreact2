@@ -10,19 +10,18 @@ const CartWidget = () => {
   return (
     <Link
       to="/cart"
-      className={styles.cartWidget} // Asegúrate de usar la clase de estilo correctamente
+      className={styles.cartWidget} 
       style={{
-        display: cart.length > 0 ? 'block' : 'none', // Cambiado de getTotalItems > 0 a cart.length > 0
-        margin: '30px'  
+        display: cart.length > 0 ? 'block' : 'none', 
+        margin: '0px 30px 30px 30px'  
       }} 
     >
       <img src="../../src/assets/img/carrito.png" alt="" className={styles.img} />
-      {cart.length} {/* Cambiado de getTotalItems a cart.length */}
+      {getTotalItems()} 
     </Link>
   );
 };
 
 export default CartWidget;
-
 
 
