@@ -17,7 +17,7 @@ const CartWidget = () => {
         margin: '0px 30px 30px 30px'  
       }} 
     >
-      <img src={carritoImg}alt="" className={styles.img} />
+      <img src={carritoImg} alt="" className={styles.img} />
       {getTotalItems()} 
     </Link>
   );
