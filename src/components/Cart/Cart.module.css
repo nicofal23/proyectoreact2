@@ -6,10 +6,11 @@
 
 .contenedorcart {
     display: flex;
-    flex-wrap: wrap;
-    gap: 1.25rem;
     flex-direction: column;
+    gap: 1.25rem;
+    align-items: center;
     align-content: center;
+    height: 100vh;
 } 
 
 .total {
@@ -24,4 +25,10 @@
     align-items: center;
     flex-direction: column;
     margin-top: 120px;
+}
+
+@media (max-width: 767px) {
+    .contenedorcart {
+        flex-direction: column;
+    }
 }

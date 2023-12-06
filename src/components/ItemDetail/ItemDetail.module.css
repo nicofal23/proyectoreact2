@@ -33,6 +33,8 @@
 .ItemFooter {
     display: flex;
     justify-content: flex-end;
+    gap: 20px;
+    
 }
 
 .option {
@@ -62,5 +64,11 @@
 @media (max-width: 767px) {
     .CardItem {
         width: 80%;
+    }
+}
+
+@media (max-width: 488px) {
+    .ItemFooter{
+        flex-direction: column;
     }
 }

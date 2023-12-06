@@ -1,7 +1,7 @@
 //itemdetail.jsx
 import styles from '../ItemDetail/ItemDetail.module.css';
 import ItemCount from '../ItemCount/ItemCount';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useState, useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
 const ItemDetail = ({ id, nombre, img, precio, stock, categoria, descripcion }) => {
@@ -42,17 +42,18 @@ const ItemDetail = ({ id, nombre, img, precio, stock, categoria, descripcion }) 
                     Precio: {precio}
                 </p>
             </section>
-            <footer className={styles.ItemFooter}>
-                {
-                cantidadAgregada > 0 ? ( <Link to='/cart' className={styles.boton}>Terminar mi compra</Link> 
-                ) : (
-                <ItemCount inicial={1} stock={stock} onAdd={handleOnAdd} />
-                )
-                 }    
-            </footer>
-        </article>
+            <div className={styles.ItemFooter}>
+                    {cantidadAgregada > 0 ? (
+                        <>
+                            <Link to='/cart' className={styles.boton}>Terminar mi compra</Link>
+                            <NavLink to='/' className={styles.boton}>Seguir comprando</NavLink>
+                        </>
+                    ) : (
+                        <ItemCount inicial={1} stock={stock} onAdd={handleOnAdd} />
+                    )}
+                </div>
+            </article>
         </div>
     );
 };
-
 export default ItemDetail;
