@@ -10,7 +10,7 @@ const Cart = () => {
 
   if (cart.length === 0) {
     return ( 
-      <div className="container">
+      <div className={styles.container}>
         <h2 className="text-center">No hay productos en el carrito</h2>
         <Link to="/" className="btn btn-primary">Volver al inicio</Link>
       </div>
