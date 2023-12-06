@@ -63,3 +63,13 @@
   cursor: pointer;
   text-decoration: none;
 }
+
+
+
+
+@media (max-width: 394px) {
+ .moni {
+  flex-direction: column;
+  gap: 20px;
+ }
+}

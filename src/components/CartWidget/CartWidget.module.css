@@ -2,4 +2,20 @@
     width: 40px;
   }
 
+  .cartWidgetVisible {
+    display: block;
+    margin: 0px 30px 30px 30px;
+  }
   
+  .cartWidgetHidden {
+    display: none;
+    margin: 0px 30px 30px 30px;
+  }
+
+
+
+  @media (max-width: 394px) {
+    .cartWidget {
+      margin: 0px;
+    }
+  }
