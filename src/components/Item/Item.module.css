@@ -45,6 +45,9 @@
     text-align: center;
   }
 
+  .OptionDisabled{
+    width: 100%;
+  }
 
   @media (max-width: 767px) {
     .CardItem {

@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import styles from '../Item/Item.module.css';
 
 const Item = ({ id, nombre, img, precio, stock }) => {
+    const isStockAvailable = stock > 0;
+
     return (
         <article className={styles.CardItem}>
             <div className={styles.Header}>
@@ -22,7 +24,15 @@ const Item = ({ id, nombre, img, precio, stock }) => {
                 </p>
             </section>
             <footer className={styles.ItemFooter}>
-                <Link to={`/item/${id}`} className={styles.Option}>Ver detalle</Link>
+                {isStockAvailable ? (
+                    <Link to={`/item/${id}`} className={styles.Option}>
+                        Ver detalle
+                    </Link>
+                ) : (
+                    <button className={styles.OptionDisabled} disabled>
+                        Sin stock
+                    </button>
+                )}
             </footer>
         </article>
     );
