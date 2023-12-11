@@ -2,6 +2,7 @@
 import { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
 import Swal from 'sweetalert2'; // Importa SweetAlert
+import style from '../CartItem/CartItem.module.css'
 
 const CartItem = ({ item }) => {
     const { removeItem } = useContext(CartContext);
@@ -30,7 +31,7 @@ const CartItem = ({ item }) => {
     };
 
     return (
-        <div className="card mb-3" style={{ maxWidth: '540px' }}>
+        <div className={`card mb-3 ${style.carditem2}`}>
             <div className="row g-0">
                 <div className="col-md-4">
                     <img src={item.item.img} className="img-fluid rounded-start" alt={item.item.nombre} />

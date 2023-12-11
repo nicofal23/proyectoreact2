@@ -19,7 +19,7 @@
   }
 
   main{
-    height: 100vh;
+    height: 100%;
   }
 
   @media (max-width: 394px) {

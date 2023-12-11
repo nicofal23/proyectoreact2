@@ -28,7 +28,10 @@
 }
 
 @media (max-width: 767px) {
-    .contenedorcart {
+    .contenedorcart { 
         flex-direction: column;
+    }
+    .card {
+        width: 260px;
     }
 }
