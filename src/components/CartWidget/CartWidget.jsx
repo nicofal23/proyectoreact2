@@ -12,10 +12,6 @@ const CartWidget = () => {
     <Link 
       to="/cart"
       className={cart.length > 0 ? styles.cartWidgetVisible : styles.cartWidgetHidden}
-      style={{
-        display: cart.length > 0 ? 'block' : 'none', 
-        margin: '0px 30px 30px 30px'  
-      }} 
     >
       <img src={carritoImg} alt="" className={styles.img} />
       {getTotalItems()} 
