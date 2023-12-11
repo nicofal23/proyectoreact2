@@ -6,7 +6,7 @@ import ItemCount from '../ItemCount/ItemCount';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'; // Ajusta la ruta según tu estructura
 import styles from '../ItemDetail/ItemDetail.module.css';
 
-const ItemDetail = ({ id, nombre, img, precio, stock, categoria, descripcion }) => {
+const ItemDetail = ({ id, nombre, img, precio, stock, category, descripcion }) => {
   const [cantidadAgregada, setCantidadAgregada] = useState(0);
   const [loading, setLoading] = useState(true); // Nuevo estado para controlar la carga
 
@@ -49,13 +49,13 @@ const ItemDetail = ({ id, nombre, img, precio, stock, categoria, descripcion }) 
             </picture>
             <section>
                 <p className={styles.Info}>
-                    Categoria:{categoria}
+                    Categoria: { category}
                 </p>
                 <p className={styles.Info}>
                     Descripcion: {descripcion}
                 </p>
                 <p className={styles.Info}>
-                    Precio: {precio}
+                    Precio: ${precio}
                 </p>
             </section>
             <div className={styles.ItemFooter}>
