@@ -1,27 +1,43 @@
-//itemdetail.jsx
-import styles from '../ItemDetail/ItemDetail.module.css';
-import ItemCount from '../ItemCount/ItemCount';
+// ItemDetail.jsx
+import React, { useState, useContext, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { useState, useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
+import ItemCount from '../ItemCount/ItemCount';
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'; // Ajusta la ruta según tu estructura
+import styles from '../ItemDetail/ItemDetail.module.css';
+
 const ItemDetail = ({ id, nombre, img, precio, stock, categoria, descripcion }) => {
-    const [cantidadAgregada, setCantidadAgregada] = useState(0);
+  const [cantidadAgregada, setCantidadAgregada] = useState(0);
+  const [loading, setLoading] = useState(true); // Nuevo estado para controlar la carga
 
-    const { addItem } = useContext(CartContext);
+  const { addItem } = useContext(CartContext);
 
-    const handleOnAdd = (cantidad) => {
-        setCantidadAgregada(cantidad);
-        const item = {
-            id, 
-            nombre,
-            precio,
-            img
-    } 
+  useEffect(() => {
+    // Simula una carga asíncrona
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+
+    // Limpia el temporizador al desmontar el componente
+    return () => clearTimeout(timer);
+  }, []);
+
+  const handleOnAdd = (cantidad) => {
+    setCantidadAgregada(cantidad);
+    const item = {
+      id,
+      nombre,
+      precio,
+      img,
+    };
     addItem(item, cantidad);
-}
+  };
 
-    return (
-        <div className={styles.divcard}>
+  return (
+    <div className={styles.divcard}>
+      {loading ? ( 
+        <LoadingSpinner />
+      ) : (
         <article className={styles.CardItem}>
             <header className={styles.Header}>
                 <h2 className={styles.ItemHeader}>
@@ -53,7 +69,12 @@ const ItemDetail = ({ id, nombre, img, precio, stock, categoria, descripcion }) 
                     )}
                 </div>
             </article>
-        </div>
-    );
+      )}
+    </div>
+  );
 };
+
 export default ItemDetail;
+
+
+

@@ -1,44 +1,46 @@
-//itemlistcontainer.jsx
-import React, { useState, useEffect} from 'react';
+// Importa el componente de carga
+import React, { useState, useEffect } from 'react';
 import ItemList from '../ItemList/ItemList';
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'; // Ajusta la ruta según la ubicación de tu componente
 import style from '../ItemListCointainer/ItemListContainer.module.css';
-import {getDocs, collection, query, where} from 'firebase/firestore';
-import {db} from '../../firebase/cliente';
+import { getDocs, collection, query, where } from 'firebase/firestore';
+import { db } from '../../firebase/cliente';
 import { useParams } from 'react-router-dom';
+
 const ItemListContainer = ({ greeting }) => {
-  const [productos, setProductos] = useState([])
-  const [loading, setLoading] = useState(true)
-  const {categoryId} = useParams()
+  const [productos, setProductos] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const { categoryId } = useParams();
 
   useEffect(() => {
-    setLoading(true)
- 
+    setLoading(true);
+
     const collectionRef = categoryId
       ? query(collection(db, 'productos'), where('category', '==', categoryId))
-      : collection(db, 'productos')
+      : collection(db, 'productos');
 
     getDocs(collectionRef)
-      .then(response => {
-        const productosAdapted = response.docs.map(doc => {
-          const data = doc.data()
-          return {id: doc.id, ...data}
-        })
-        setProductos(productosAdapted)
-      })  
-      .catch(error => {
-        console.log(error)
+      .then((response) => {
+        const productosAdapted = response.docs.map((doc) => {
+          const data = doc.data();
+          return { id: doc.id, ...data };
+        });
+        setProductos(productosAdapted);
+      })
+      .catch((error) => {
+        console.log(error);
       })
       .finally(() => {
-        setLoading(false)
-      })  
-  }, [categoryId])
+        setLoading(false);
+      });
+  }, [categoryId]);
 
   return (
     <div className="container">
       <div className="row">
         <div className={style.col}>
           <h2 className="mt-5">{greeting}</h2>
-          <ItemList productos={productos}/>
+          {loading ? <LoadingSpinner /> : <ItemList productos={productos} />}
         </div>
       </div>
     </div>
@@ -46,3 +48,4 @@ const ItemListContainer = ({ greeting }) => {
 };
 
 export default ItemListContainer;
+

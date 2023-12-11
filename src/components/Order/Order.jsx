@@ -1,8 +1,10 @@
-import React, { useContext, useState } from 'react';
+// Order.jsx
+import React, { useContext, useState, useEffect } from 'react';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import { CartContext } from '../../context/CartContext';
 import styles from './Order.module.css';
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'; // Ajusta la ruta según tu estructura
 import { db } from '../../firebase/cliente';
 import { addDoc, collection, serverTimestamp, getDoc, doc, updateDoc } from 'firebase/firestore';
 
@@ -15,6 +17,15 @@ const Order = () => {
     phone: '',
     email: '',
   });
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    // Simula una carga asíncrona al inicio (puedes ajustar según tus necesidades)
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -94,62 +105,68 @@ const Order = () => {
         title: '¡Error!',
         text: 'Ocurrió un error al procesar la compra. Intente nuevamente más tarde.',
       });
+    } finally {
+      setLoading(false); // Desactiva el spinner después de realizar la compra o en caso de error
     }
   };
 
   return (
     <div className={styles.contenedor}>
-      <div className={styles.orden}>
-        <div className={styles.product}>
-          <h1>Productos</h1>
-          {cart.map((item, index) => (
-            <div key={index}>
-              <h6>• {item.item.nombre}</h6>
-            </div>
-          ))}
+      {loading ? (
+        <LoadingSpinner />
+      ) : (
+        <div className={styles.orden}>
+          <div className={styles.product}>
+            <h1>Productos</h1>
+            {cart.map((item, index) => (
+              <div key={index}>
+                <h6>• {item.item.nombre}</h6>
+              </div>
+            ))}
+          </div>
+          <div className={styles.formcontainer}>
+            <h1 className={styles.formtitle}>Información del Cliente</h1>
+            <form>
+              <label className={styles.formlabel}>
+                Nombre:
+                <input
+                  type="text"
+                  name="name"
+                  value={customerInfo.name}
+                  onChange={handleInputChange}
+                  className={styles.forminput}
+                />
+              </label>
+              <br />
+              <label className={styles.formlabel}>
+                Teléfono:
+                <input
+                  type="text"
+                  name="phone"
+                  value={customerInfo.phone}
+                  onChange={handleInputChange}
+                  className={styles.forminput}
+                />
+              </label>
+              <br />
+              <label className={styles.formlabel}>
+                Email:
+                <input
+                  type="text"
+                  name="email"
+                  value={customerInfo.email}
+                  onChange={handleInputChange}
+                  className={styles.forminput}
+                />
+              </label>
+              <br />
+              <button type="button" onClick={handleBuyClick} className={styles.formbutton}>
+                Comprar
+              </button>
+            </form>
+          </div>
         </div>
-        <div className={styles.formcontainer}>
-          <h1 className={styles.formtitle}>Información del Cliente</h1>
-          <form>
-            <label className={styles.formlabel}>
-              Nombre:
-              <input
-                type="text"
-                name="name"
-                value={customerInfo.name}
-                onChange={handleInputChange}
-                className={styles.forminput}
-              />
-            </label>
-            <br />
-            <label className={styles.formlabel}>
-              Teléfono:
-              <input
-                type="text"
-                name="phone"
-                value={customerInfo.phone}
-                onChange={handleInputChange}
-                className={styles.forminput}
-              />
-            </label>
-            <br />
-            <label className={styles.formlabel}>
-              Email:
-              <input
-                type="text"
-                name="email"
-                value={customerInfo.email}
-                onChange={handleInputChange}
-                className={styles.forminput}
-              />
-            </label>
-            <br />
-            <button type="button" onClick={handleBuyClick} className={styles.formbutton}>
-              Comprar
-            </button>
-          </form>
-        </div>
-      </div>
+      )}
     </div>
   );
 };

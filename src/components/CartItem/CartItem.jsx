@@ -1,9 +1,33 @@
 // CartItem.jsx
 import { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
+import Swal from 'sweetalert2'; // Importa SweetAlert
 
 const CartItem = ({ item }) => {
     const { removeItem } = useContext(CartContext);
+
+    const handleRemoveItem = () => {
+        // Muestra SweetAlert antes de eliminar el producto
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.onmouseenter = Swal.stopTimer;
+                toast.onmouseleave = Swal.resumeTimer;
+            }
+        });
+
+        Toast.fire({
+            icon: 'success',
+            title: 'Producto eliminado'
+        });
+
+        // Llama a la función para eliminar el producto después de mostrar SweetAlert
+        removeItem(item.item.id);
+    };
 
     return (
         <div className="card mb-3" style={{ maxWidth: '540px' }}>
@@ -16,11 +40,11 @@ const CartItem = ({ item }) => {
                         <h5 className="card-title">Producto: {item.item.nombre}</h5>
                         <p className="card-text">Cantidad: {item.cantidad}</p>
                         <p className="card-text">Precio: $ {item.item.precio}</p>
-                        <button className="btn btn-primary" onClick={() => removeItem(item.item.id)}>Eliminar</button>
+                        <button className="btn btn-primary" onClick={handleRemoveItem}>Eliminar</button>
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>
     );
 };
 

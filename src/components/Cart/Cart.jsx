@@ -1,12 +1,28 @@
-// cart.jsx
-import { useContext } from "react";
-import { CartContext } from "../../context/CartContext";
-import { Link } from "react-router-dom";
-import CartItem from "../CartItem/CartItem";
-import styles from "../Cart/Cart.module.css";
+// Cart.jsx
+import { useContext, useState, useEffect } from 'react';
+import { CartContext } from '../../context/CartContext';
+import { Link } from 'react-router-dom';
+import CartItem from '../CartItem/CartItem';
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'; // Ajusta la ruta según tu estructura
+import styles from '../Cart/Cart.module.css';
 
 const Cart = () => {
   const { cart, clearCart } = useContext(CartContext);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Simula una carga asíncrona
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+
+    // Limpia el temporizador al desmontar el componente
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return <LoadingSpinner />;
+  }
 
   if (cart.length === 0) {
     return ( 
@@ -30,4 +46,5 @@ const Cart = () => {
 };
 
 export default Cart;
+
 
