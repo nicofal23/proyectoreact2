@@ -1,7 +1,7 @@
 // CartItem.jsx
 import { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
-import Swal from 'sweetalert2'; // Importa SweetAlert
+import Swal from 'sweetalert2'; 
 import style from '../CartItem/CartItem.module.css'
 
 const CartItem = ({ item }) => {
@@ -12,7 +12,7 @@ const CartItem = ({ item }) => {
         const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',
-            showConfirmButton: false,
+            showConfirmButton: false, 
             timer: 3000,
             timerProgressBar: true,
             didOpen: (toast) => {

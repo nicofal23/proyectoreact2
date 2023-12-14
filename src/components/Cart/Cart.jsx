@@ -3,14 +3,14 @@ import { useContext, useState, useEffect } from 'react';
 import { CartContext } from '../../context/CartContext';
 import { Link } from 'react-router-dom';
 import CartItem from '../CartItem/CartItem';
-import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'; // Ajusta la ruta según tu estructura
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'; 
 import styles from '../Cart/Cart.module.css';
 
 const Cart = () => {
   const { cart, clearCart } = useContext(CartContext);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
+  useEffect(() => { 
     // Simula una carga asíncrona
     const timer = setTimeout(() => {
       setLoading(false);

@@ -1,7 +1,7 @@
-// Importa el componente de carga
+// ItemListContainer.jsx
 import React, { useState, useEffect } from 'react';
 import ItemList from '../ItemList/ItemList';
-import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'; // Ajusta la ruta según la ubicación de tu componente
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'; 
 import style from '../ItemListCointainer/ItemListContainer.module.css';
 import { getDocs, collection, query, where } from 'firebase/firestore';
 import { db } from '../../firebase/cliente';

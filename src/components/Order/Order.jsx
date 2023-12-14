@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import { CartContext } from '../../context/CartContext';
 import styles from './Order.module.css';
-import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'; // Ajusta la ruta según tu estructura
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'; 
 import { db } from '../../firebase/cliente';
 import { addDoc, collection, serverTimestamp, getDoc, doc, updateDoc } from 'firebase/firestore';
 
@@ -20,7 +20,7 @@ const Order = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    // Simula una carga asíncrona al inicio (puedes ajustar según tus necesidades)
+    // Simula una carga asíncrona al inicio 
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
@@ -106,7 +106,7 @@ const Order = () => {
         text: 'Ocurrió un error al procesar la compra. Intente nuevamente más tarde.',
       });
     } finally {
-      setLoading(false); // Desactiva el spinner después de realizar la compra o en caso de error
+      setLoading(false); // Desactiva el spinner después de hacer la compra 
     }
   };
 

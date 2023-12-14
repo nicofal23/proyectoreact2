@@ -19,7 +19,7 @@ const RouterPrincipal = () => {
             <Route path="/checkout" element={<Order/>} />
           </Routes>
         </CartProvider>
-    </BrowserRouter>
+    </BrowserRouter> 
   );
 };
 

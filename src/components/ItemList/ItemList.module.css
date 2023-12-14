@@ -17,7 +17,7 @@
     .ListaGrupo {
       flex-direction: column;
     }
-    .CardItem {
+    .CardItem { 
       width: 100%;
     }
   }

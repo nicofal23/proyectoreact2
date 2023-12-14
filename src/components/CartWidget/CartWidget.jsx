@@ -17,7 +17,7 @@ const CartWidget = () => {
       {getTotalItems()} 
     </Link>
   );
-};
+}; 
 
 export default CartWidget;
 

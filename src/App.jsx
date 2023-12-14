@@ -19,7 +19,7 @@ const App = () => {
         </main>
         <footer>
             <Footer />
-        </footer>
+        </footer> 
         </>
     );
 }
